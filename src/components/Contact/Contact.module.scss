@@ -1,0 +1,142 @@
+.section {
+  padding: 96px 24px;
+  background:
+    radial-gradient(
+      ellipse 60% 60% at 50% 100%,
+      rgba(0, 185, 106, 0.1) 0%,
+      transparent 70%
+    ),
+    var(--navy-mid);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.info {
+  .label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+}
+
+.title {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 20px;
+
+  em {
+    font-style: normal;
+    color: var(--green);
+  }
+}
+
+.lead {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    border-color: rgba(0, 185, 106, 0.35);
+    transform: translateX(4px);
+  }
+}
+
+.channelIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.green {
+  background: rgba(0, 185, 106, 0.12);
+  color: var(--green);
+}
+
+.orange {
+  background: rgba(245, 166, 35, 0.12);
+  color: var(--orange);
+}
+
+.blue {
+  background: rgba(88, 166, 255, 0.12);
+  color: #58a6ff;
+}
+
+.channelText {
+  strong {
+    display: block;
+    font-size: 15px;
+    color: var(--white);
+  }
+  span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+}
+
+.formFallback {
+  background: var(--navy-card);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 40px;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 16px;
+  }
+}

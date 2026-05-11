@@ -1,0 +1,92 @@
+.section {
+  padding: 96px 24px;
+  background: var(--navy-mid);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 16px;
+
+  em {
+    font-style: normal;
+    color: var(--green);
+  }
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 720px;
+  margin-bottom: 52px;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.pillar {
+  background: var(--navy);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 28px 24px;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    border-color: rgba(0, 185, 106, 0.3);
+    transform: translateY(-4px);
+  }
+
+  h4 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+}
+
+.pillarIcon {
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 16px;
+  }
+}

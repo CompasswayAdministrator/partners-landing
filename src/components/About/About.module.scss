@@ -1,0 +1,147 @@
+.section {
+  padding: 96px 24px;
+  background: var(--navy);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: "Unbounded", sans-serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 16px;
+
+  em {
+    font-style: normal;
+    color: var(--green);
+  }
+}
+
+.text p {
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-size: 16px;
+
+  strong {
+    color: var(--white);
+  }
+}
+
+.cta {
+  margin-top: 12px;
+}
+
+.visual {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 185, 106, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.miniList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+.miniItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    border-color: rgba(0, 185, 106, 0.3);
+    transform: translateX(4px);
+  }
+}
+
+.miniIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.green {
+  background: rgba(0, 185, 106, 0.15);
+  color: var(--green);
+}
+
+.orange {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--orange);
+}
+
+.miniText {
+  strong {
+    display: block;
+    font-family: "Unbounded", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 16px;
+  }
+}

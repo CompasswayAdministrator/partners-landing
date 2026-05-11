@@ -1,0 +1,22 @@
+.footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 40px 24px;
+  text-align: center;
+
+  p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  a {
+    color: var(--green);
+    text-decoration: none;
+  }
+}
+
+.logo {
+  font-size: 18px;
+  display: inline-block;
+  margin-bottom: 12px;
+}

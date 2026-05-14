@@ -1,9 +1,7 @@
 name: Prod deploy partners landing
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   deploy:

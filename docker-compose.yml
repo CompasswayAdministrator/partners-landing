@@ -1,0 +1,7 @@
+services:
+  partners-landing:
+    image: partners-landing:latest
+    container_name: partners-landing
+    restart: always
+    ports:
+      - "3007:80"

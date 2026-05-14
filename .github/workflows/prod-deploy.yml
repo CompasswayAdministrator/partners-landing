@@ -1,0 +1,45 @@
+name: Prod deploy partners landing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg VITE_APP_ENV=${{ secrets.VITE_APP_ENV }} \
+            --build-arg VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }} \
+            -t partners-landing:latest .
+
+      - name: Save image to tar
+        run: |
+          docker save partners-landing:latest | gzip > partners-landing.tar.gz
+
+      - name: Copy image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "partners-landing.tar.gz"
+          target: "/opt/partners-landing"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /opt/partners-landing
+            docker load < partners-landing.tar.gz
+            docker compose -f docker-compose.prod.yml up -d --force-recreate
+            rm -f partners-landing.tar.gz
